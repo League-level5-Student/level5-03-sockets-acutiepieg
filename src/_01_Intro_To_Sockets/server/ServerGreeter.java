@@ -30,20 +30,22 @@ public class ServerGreeter extends Thread {
 			// Put steps 8 - 15 in the try block.
 			try {
 				// 8. Let the user know that the server is waiting for a client to connect.
-				JOptionPane.showMessageDialog(null, "Waiting client connection");
+				//JOptionPane.showMessageDialog(null, "Waiting client connection");
+				System.out.println("Waiting client connection");
 				// 9. Create an object of the Socket class and initialize it to serverSocket.accept();
 				// Change serverSocket to match the ServerSocket member variable you created in step 1.
 				// The program will wait her until either a client connects or the timeout
 				// expires.
 				Socket connection = serversocket.accept();
 				// 10. Let the user know that the client has connected.
-				JOptionPane.showMessageDialog(null, "Client Connected");
+				//JOptionPane.showMessageDialog(null, "Client Connected");
+				System.out.println("client connected");
 				// 11. Create a DataInputStream object. When initializing it, use the Socket
 				// object you created in step 9 to call the getInputStream() method.
 				DataInputStream input = new DataInputStream(connection.getInputStream());
 				// 12. Print the message from the DataInputStream object using the readUTF()
 				// method
-				input.readUTF();
+				System.out.println(input.readUTF());
 				// 13. Create a DataOutputStream object. When initializing it, use the Server
 				// object you created in step 9 to call the getOutputStream() method.
 				DataOutputStream output = new DataOutputStream(connection.getOutputStream());
@@ -72,14 +74,14 @@ public class ServerGreeter extends Thread {
 	public static void main(String[] args) {
 		// 16. In a new thread, create an object of the ServerGreeter class and start
 		// the thread. Don't forget the try-catch.
-		Thread t = new Thread(()-> {
-			try {
-				ServerGreeter s = new ServerGreeter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
-		t.start();
+				ServerGreeter s;
+				try {
+					s = new ServerGreeter();
+					s.start();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 	}
 }
