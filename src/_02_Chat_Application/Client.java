@@ -31,18 +31,15 @@ public class Client {
 			os = new ObjectOutputStream(connection.getOutputStream());
 			is = new ObjectInputStream(connection.getInputStream());
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Connection Lost");
 		}
 		
 		while(connection.isConnected()) {
 			try {
-				JTextPane pane = new JTextPane();
-				JScrollPane scroll = new JScrollPane(pane, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-						ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED );
-			   
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("Connection Lost");
 			}
 		}
 	}
