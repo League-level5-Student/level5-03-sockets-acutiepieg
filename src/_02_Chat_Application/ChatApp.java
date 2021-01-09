@@ -28,10 +28,9 @@ public class ChatApp extends JFrame {
 		int response = JOptionPane.showConfirmDialog(null, "Would you like to host a connection?", "Buttons!",
 				JOptionPane.YES_NO_OPTION);
 		if (response == JOptionPane.YES_OPTION) {
-			server = new Server(8080);
+			server = new Server(8081);
 			setTitle("Server");
-			System.out.println("Server started at: " + server.getIPAddress() + "\nPort: " + server.getPort());
-			
+			System.out.println("Server started");
 			setVisible(true);
 			setSize(300, 400);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
