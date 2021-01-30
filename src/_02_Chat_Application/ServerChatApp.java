@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class ServerChatApp {
 	private int port;
 	
 	private ServerSocket serverSocket;
@@ -14,7 +14,7 @@ public class Server {
 	ObjectOutputStream os;
 	ObjectInputStream is;
 
-	public Server(int port) {
+	public ServerChatApp(int port) {
 		this.port = port;
 	}
 	

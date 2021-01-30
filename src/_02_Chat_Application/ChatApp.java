@@ -17,18 +17,17 @@ import _00_Click_Chat.networking.Server;
  */
 
 public class ChatApp extends JFrame {
-	Server server;
-	Client client;
+	ServerChatApp server;
+	ClientChatApp client;
 
 	public static void main(String[] args) {
 		new ChatApp();
 	}
 
 	public ChatApp() {
-		int response = JOptionPane.showConfirmDialog(null, "Would you like to host a connection?", "Buttons!",
-				JOptionPane.YES_NO_OPTION);
+		int response = JOptionPane.showConfirmDialog(null, "Would you like to host a connection?",null, JOptionPane.YES_NO_OPTION);
 		if (response == JOptionPane.YES_OPTION) {
-			server = new Server(8081);
+			server = new ServerChatApp(8080);
 			setTitle("Server");
 			System.out.println("Server started");
 			setVisible(true);
@@ -49,7 +48,7 @@ public class ChatApp extends JFrame {
 			}
 			String portString = JOptionPane.showInputDialog("Enter Port Number");
 			int portNum = Integer.parseInt(portString);
-			client = new Client(ipString, portNum);	
+			client = new ClientChatApp(ipString, portNum);	
 			
 			setVisible(true);
 			setSize(300, 400);

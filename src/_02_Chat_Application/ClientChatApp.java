@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 
-public class Client {
+public class ClientChatApp {
 	private String ip;
 	private int port;
 	
@@ -20,7 +20,7 @@ public class Client {
 	
 	
 	
-	public Client (String ip, int port) {
+	public ClientChatApp (String ip, int port) {
 		this.ip = ip;
 		this.port = port;
 	}
