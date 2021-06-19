@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 
@@ -40,10 +41,10 @@ public class ChatApp extends JFrame {
 			JPanel serverPanel = new JPanel();
 			add(serverPanel);
 
-			JLabel sInitial = new JLabel("client window");
+			JLabel sInitial = new JLabel("server window");
 			serverPanel.add(sInitial);
 
-			this.server.start(serverPanel);
+			this.server.start(serverPanel, this);
 
 		} else if (response == JOptionPane.NO_OPTION) {
 			setTitle("Client");
@@ -67,6 +68,9 @@ public class ChatApp extends JFrame {
 
 			JLabel initial = new JLabel("client window");
 			clientPanel.add(initial);
+			
+			JTextField cField = new JTextField(20);
+			clientPanel.add(cField);
 
 			setVisible(true);
 			setSize(300, 400);
@@ -78,7 +82,7 @@ public class ChatApp extends JFrame {
 			add(pane);
 			add(scroll);
 
-			this.client.start(clientPanel);
+			this.client.start(clientPanel, cField, this);
 		} else {
 			System.exit(0);
 		}
@@ -86,4 +90,5 @@ public class ChatApp extends JFrame {
 		setSize(500, 400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
 }
